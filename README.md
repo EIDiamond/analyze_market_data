@@ -1,7 +1,7 @@
 ## Description
 This is an example tool to analyze market data such as candles and trades.
 
-Find your own ideas and test it by using backtesting tool [backtesting/tinkoff_tests_py](https://github.com/EIDiamond/invest-tools/tree/main/backtesting/tinkoff_tests_py) project.
+Find your own ideas and test it by using backtesting tool [trade_backtesting](https://github.com/EIDiamond/trade_backtesting) project.
 
 Best ideas can be a strategy for trading bot [invest-bot](https://github.com/EIDiamond/invest-bot) project
 
@@ -42,7 +42,7 @@ Configuration can be specified via [settings.ini](settings.ini) file.
 
 ### Section DATA_PROVIDER
 - `ROOT_PATH` - path to root folder with downloaded market data by
-[data_collectors/tinkoff_stream_py](https://github.com/EIDiamond/invest-tools/tree/main/data_collectors/tinkoff_stream_py) project
+[tinkoff_market_data_collector](https://github.com/EIDiamond/tinkoff_market_data_collector) project
 
 ### Section PROVIDER_NAME (RSI_CALCULATION in example)
 - Name of section must be the same as `ANALYZE`.`PROVIDER_NAME`, other section names will be ignored
@@ -62,6 +62,21 @@ Enjoy it.
 
 ## RSI_CALCULATION example
 - Just an example how you can develop your own indicator and use it by tool. 
+
+## Use case
+1. Download market data using [tinkoff_market_data_collector](https://github.com/EIDiamond/tinkoff_market_data_collector) project
+2. Research data and find an idea for trade strategy using [analyze_market_data](https://github.com/EIDiamond/analyze_market_data) project
+3. Test and tune your trade strategy using [trade_backtesting](https://github.com/EIDiamond/trade_backtesting) project
+4. Trade by [invest-bot](https://github.com/EIDiamond/invest-bot) and your own strategy.
+5. Profit!
+
+### Example
+Your can find example in code:
+- Let's imagine your have great idea to invent your own idicator. Rsi idicator was selected for example.
+- RSI Calculation alghoritm has been written for [research tool](https://github.com/EIDiamond/analyze_market_data/blob/main/analyze/rsi_calculation/rsi_calculation_analyze.py)
+- It has been tested by [backtesting](https://github.com/EIDiamond/trade_backtesting/blob/main/trade_system/strategies/rsi_example/rsi_strategy.py)
+- And now you are able to make your desicion.
+
 
 ## Logging
 All logs are written in `logs/analyze.log`.
