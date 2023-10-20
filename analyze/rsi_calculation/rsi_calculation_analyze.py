@@ -59,6 +59,10 @@ class RsiCalculation(IAnalyzeProvider):
                 )
             )
 
+        if not candles:
+            logger.info(f"Stop RSI calculation. Candles weren't found.")
+            return
+
         logger.info(f"Start RSI calculation")
         candles_rsi = self.__calculate_rsi(pd.DataFrame(candles))
 
