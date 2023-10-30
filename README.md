@@ -35,7 +35,7 @@ Run `main.py`
 Configuration can be specified via [settings.ini](settings.ini) file.
 
 ### Section ANALYZE
-- `FROM_DAYS` - count of days for data providers 
+- `FROM_DAYS` - count of days for data providers (negative number disable filtration by date) 
 - `FIGI` - stock figi for research
 - `PROVIDER_NAME` - name of analyze provider to run 
 (`RSI_CALCULATION` - is an example, you are free to add your own ideas)
