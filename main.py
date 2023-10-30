@@ -4,7 +4,7 @@ from logging.handlers import RotatingFileHandler
 
 from analyze.analyze_provider_factory import AnalyzeProviderFactory
 from configuration.configuration import ProgramConfiguration
-from data_provider.tinkoff_downloaded.tinkoff_downloaded import TinkoffDownloaded
+from data_provider.data_provider_factory import DataProviderFactory
 from runner.runner import Runner
 
 # the configuration file name
@@ -36,7 +36,10 @@ if __name__ == "__main__":
         logger.critical("Load configuration error: %s", repr(ex))
     else:
         # create data provider
-        data_provider = TinkoffDownloaded(config.data_provider_settings.root_path)
+        data_provider = DataProviderFactory.new_factory(
+            config.data_provider_settings.name,
+            config.data_provider_settings.root_path
+        )
         # create analyze provider by provider_name
         analyze_provider = AnalyzeProviderFactory.new_factory(
             config.analyze_settings.provider_name,

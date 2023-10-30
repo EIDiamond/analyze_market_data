@@ -16,6 +16,7 @@ class ProgramConfiguration:
         config.read(file_name)
 
         self.__data_provider_settings = DataProviderSettings(
+            name=config["DATA_PROVIDER"]["NAME"],
             root_path=config["DATA_PROVIDER"]["ROOT_PATH"]
         )
 

@@ -41,8 +41,12 @@ Configuration can be specified via [settings.ini](settings.ini) file.
 (`RSI_CALCULATION` - is an example, you are free to add your own ideas)
 
 ### Section DATA_PROVIDER
-- `ROOT_PATH` - path to root folder with downloaded market data by
+- `NAME` - name of data provider:
+  - 'TinkoffDownloaded' for market data downloaded by
 [tinkoff_market_data_collector](https://github.com/EIDiamond/tinkoff_market_data_collector) project
+  - 'TinkoffHistoryData' for market data downloaded from 'https://invest-public-api.tinkoff.ru/history-data'
+[More information](https://tinkoff.github.io/investAPI/get_history/)
+- `ROOT_PATH` - path to root folder with downloaded market data 
 
 ### Section PROVIDER_NAME (RSI_CALCULATION in example)
 - Name of section must be the same as `ANALYZE`.`PROVIDER_NAME`, other section names will be ignored

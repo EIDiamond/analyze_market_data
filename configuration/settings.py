@@ -5,6 +5,7 @@ __all__ = ("DataProviderSettings", "AnalyzeSettings")
 
 @dataclass(eq=False, repr=True)
 class DataProviderSettings:
+    name: str = ""
     root_path: str = ""
 
 
