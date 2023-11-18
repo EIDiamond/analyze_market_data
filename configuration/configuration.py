@@ -1,7 +1,7 @@
 from configparser import ConfigParser
 from typing import ValuesView
 
-from configuration.settings import DataProviderSettings, AnalyzeSettings
+from configuration.settings import AnalyzeSettings
 
 __all__ = ("ProgramConfiguration")
 
@@ -15,10 +15,7 @@ class ProgramConfiguration:
         config = ConfigParser()
         config.read(file_name)
 
-        self.__data_provider_settings = DataProviderSettings(
-            name=config["DATA_PROVIDER"]["NAME"],
-            root_path=config["DATA_PROVIDER"]["ROOT_PATH"]
-        )
+        self.__data_provider_name = config["DATA_PROVIDER"]["NAME"]
 
         self.__analyze_settings = AnalyzeSettings(
             from_days=int(config["ANALYZE"]["FROM_DAYS"]),
@@ -29,8 +26,14 @@ class ProgramConfiguration:
         # values are used as *arg in init method of provider class
         self.__analyze_provider_settings = config[self.__analyze_settings.provider_name].values()
 
+        self.__data_provider_settings = config["DATA_PROVIDER_SETTINGS"].values()
+
     @property
-    def data_provider_settings(self) -> DataProviderSettings:
+    def data_provider_name(self) -> str:
+        return self.__data_provider_name
+
+    @property
+    def data_provider_settings(self) -> ValuesView[str]:
         return self.__data_provider_settings
 
     @property

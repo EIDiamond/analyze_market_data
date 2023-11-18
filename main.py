@@ -37,8 +37,8 @@ if __name__ == "__main__":
     else:
         # create data provider
         data_provider = DataProviderFactory.new_factory(
-            config.data_provider_settings.name,
-            config.data_provider_settings.root_path
+            config.data_provider_name,
+            *config.data_provider_settings
         )
         # create analyze provider by provider_name
         analyze_provider = AnalyzeProviderFactory.new_factory(

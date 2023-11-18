@@ -1,12 +1,6 @@
 from dataclasses import dataclass
 
-__all__ = ("DataProviderSettings", "AnalyzeSettings")
-
-
-@dataclass(eq=False, repr=True)
-class DataProviderSettings:
-    name: str = ""
-    root_path: str = ""
+__all__ = ("AnalyzeSettings")
 
 
 @dataclass(eq=False, repr=True)

@@ -46,8 +46,16 @@ Configuration can be specified via [settings.ini](settings.ini) file.
 [tinkoff_market_data_collector](https://github.com/EIDiamond/tinkoff_market_data_collector) project
   - 'TinkoffHistoryData' for market data downloaded from 'https://invest-public-api.tinkoff.ru/history-data'
 [More information](https://tinkoff.github.io/investAPI/get_history/)
-- `ROOT_PATH` - path to root folder with downloaded market data 
+  - 'TinkoffAPIGetAllCandles' is getting history candles from tinkoff api online. Requires API Token.
 
+### Section DATA_PROVIDER_SETTINGS
+- if name is `TinkoffDownloaded`
+  - 'ROOT_PATH' - path to root folder with downloaded market data 
+- if name is `TinkoffHistoryData`
+  - 'ROOT_PATH' - path to root folder with downloaded market data
+- if name is `TinkoffAPIGetAllCandles`
+  - 'TOKEN' - token for [Тинькофф Инвестиции](https://www.tinkoff.ru/invest/) api.  
+  
 ### Section PROVIDER_NAME (RSI_CALCULATION in example)
 - Name of section must be the same as `ANALYZE`.`PROVIDER_NAME`, other section names will be ignored
 - All settings in the section will be provided as *args to the init method of provider class 
